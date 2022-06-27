@@ -5,11 +5,7 @@ const http = require('http')
 
 //настрои подключение
 mongoose.connect(
-    'mongodb+srv://owin66:Pass321@nodejs.tyesk.mongodb.net/?retryWrites=true&w=majority',
-    {
-        userCreateIndex:true,
-        useNewUrlParser:true,
-    }
+    'mongodb://localhost:27017/mevnshop',
 )
 //инициализируем приложение
 const app = express()
