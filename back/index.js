@@ -3,9 +3,10 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const http = require('http')
 
+
 //настрои подключение
 mongoose.connect(
-    'mongodb://localhost:27017/mevnshop',
+    'mongodb://localhost:27017/stoic_allen',
 )
 //инициализируем приложение
 const app = express()
