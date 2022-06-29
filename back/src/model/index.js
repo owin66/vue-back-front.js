@@ -1,7 +1,7 @@
 const Product = require('./Product')
 const Category = require('./Category')
 
-model.exports = {
+module.exports = {
     Product,
     Category,
 };
