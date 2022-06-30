@@ -18,7 +18,7 @@ const schema = new Schema({
         default: ''
     },
     imageUrl: {
-        type: Number,
+        type: String,
         default: ''
     },
     category: {
