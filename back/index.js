@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 routes.forEach((item) => {
-    app.use(item, require(`./src/routes/${item}`))
+    app.use(`/api/v1/${item}`, require(`./src/routes/${item}`))
 })
 //объявим роуты
 const PORT = 3000

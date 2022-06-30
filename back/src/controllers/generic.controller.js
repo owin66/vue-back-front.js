@@ -1,45 +1,45 @@
 const boom = require('boom')
 
 const genericCrud = (model) => ({
-    async get({params: {id}}) {
+    async get({params: {id}}, res) {
         try {
             const item = await model.findById(id)//vernet 1
-            return item
+            return res.status(200).send(item)
         } catch (err) {
-            throw boom.boomify(err)
+            return res.status(400).send(boom.boomify(err))
         }
     },
-    async getAll() {
+    async getAll(req, res) {
         try {
-            const item = await model.find(id)//vernet vse producti iz schema
-            return item
+            const items = await model.find(id)//vernet vse producti iz schema
+            return res.status(200).send(items)
         } catch (err) {
-            throw boom.boomify(err)
+            return res.status(400).send(boom.boomify(err))
         }
     },
-    async create({body}) { //title:Contrlo
+    async create({body}, res) { //title:Contrlo
         try {
             const item = new model(body)//bodi iz frontend
             const newItem = await item.save()//sohranit znacheniya
-            return newItem
+            return res.status(200).send(newItem)
         } catch (err) {
-            throw boom.boomify(err)
+            return res.status(400).send(boom.boomify(err))
         }
     },
-    async update({params: {id}, body}) {//title Control
+    async update({params: {id}, body}, res) {//title Control
         try {
             const item = await model.findByIdAndUpdate(id, body, {new: true})//update
-            return item
+            return res.status(200).send(item)
         } catch (err) {
-            throw boom.boomify(err)
+            return res.status(400).send(boom.boomify(err))
         }
     },
-    async delete({params: {id}}) {
+    async delete({params: {id}}, res) {
         try {
             await model.findByIdAndDelete(id)
-            return {status: 'OK', message: 'Продукт удален'}
+            return res.status(200).send({status: 'OK', message: 'Продукт удален'})
         } catch (err) {
-            throw boom.boomify(err)
+            return res.status(400).send(boom.boomify(err))
         }
     },
 })
