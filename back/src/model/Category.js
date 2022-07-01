@@ -12,7 +12,8 @@ const schema = new Schema({
     products: [{
         type: ObjectId,
         ref: 'Product'
-    }],
+    },
+    ],
 })
 
 module.exports = model('Category', schema)
