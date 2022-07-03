@@ -5,8 +5,11 @@
     </div>
     <div class="header_right">
       <ul class="nav">
-        <li class='nav_link' v-for="(category, key) in categories" :key="key"></li>
-<router-link>{{category.title}}</router-link>
+        <li class='nav_link'
+            v-for="({id,title}, key) in categories"
+            :key="key">
+          <router-link :to='`category/${id}/`'>{{ title }}</router-link>
+        </li>
       </ul>
     </div>
 
@@ -31,5 +34,26 @@ export default {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  width: 100%;
+  padding-inline-start: 0;
+
+  &_link {
+    margin-right: 10px;
+
+    a {
+      cursor: pointer;
+      text-decoration: none;
+      color: black;
+      &:hover{
+        color:olive;
+      }
+    }
+  }
 }
 </style>
