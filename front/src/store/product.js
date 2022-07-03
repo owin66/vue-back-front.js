@@ -1,10 +1,5 @@
 import {getProduct, getProducts} from "@/services/products.servise";
 
-const state = () => ({
-    product: {},
-    products: [],
-    productError: null
-})
 
 const mutations = {
     setProduct(state, product) {
@@ -42,6 +37,12 @@ const getters = {
     products: ({products}) => products,
     productError: ({productError}) => productError
 }
+
+const state = () => ({
+    product: {},
+    products: [],
+    productError: null
+})
 
 export default {
     mutations,
