@@ -1,9 +1,22 @@
-const state = ()=>({})
+const state = ()=>({
+    product:{},
+    products:[],
+    productError:null
+})
 
-const mutations = {
-
-}
+const mutations = {}
 
 const actions = {}
 
-const getters = {}
+const getters = {
+    product:({ product})=>product,
+    products:({ products})=>products,
+    productError: null
+}
+
+export default {
+    mutations,
+    getters,
+    actions,
+    state
+}
